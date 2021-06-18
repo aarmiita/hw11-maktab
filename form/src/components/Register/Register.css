@@ -1,0 +1,58 @@
+form.register-form {
+  padding: 20px;
+}
+a {
+  display: inline-block;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: #1ab188;
+  text-decoration: none;
+}
+
+.register-form h2 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.signout-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signout-control input {
+  display: inline-flex;
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  border: 1px solid rgb(212, 212, 212);
+  color: white;
+  background-color: transparent;
+}
+.signout-control input:first-child {
+  margin-left: 10px;
+}
+.register-control input {
+  margin: 10px 0;
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  border: 1px solid rgb(212, 212, 212);
+  color: white;
+  background-color: transparent;
+}
+/* input::placeholder::first-line {
+    color: #1ab188;
+  } */
+.register-btn {
+  display: inline-block;
+  background-color: #1ab188;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 24px;
+}

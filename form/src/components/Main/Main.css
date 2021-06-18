@@ -1,0 +1,39 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  direction: rtl;
+}
+.btns {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  max-height: 500px;
+  background-color: #24333c;
+}
+.tab {
+  font-weight: bold;
+  color: #a09e83;
+  background-color: #435359;
+}
+.content {
+  display: none;
+}
+.active-content {
+  padding: 0;
+  display: block;
+}
+.active-tab {
+  font-weight: bold;
+  color: white;
+  background-color: #1ab188;
+}
