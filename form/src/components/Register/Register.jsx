@@ -10,9 +10,59 @@ const Register = ({ classes }) => {
   const [fname, setFname] = useState("");
   const [success, setSuccess] = useState(false);
   const [togglePass, setTogglePass] = useState(false);
-
   const emailpattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-
+  const [province, setProvince] = useState("");
+  const [city, setCity] = useState(false);
+  const [newCities, setNewCities] = useState("");
+  const [subCities, setSubCities] = useState([]);
+  const [degree, setDegree] = useState("");
+  const [degreePlace, setDegreePlace] = useState(false);
+  const handleDegree = (e) => {
+    setDegree(e.target.value);
+    if (e.target.value === "") {
+      setDegreePlace(false);
+    } else {
+      setDegreePlace(true);
+    }
+  };
+  const handleProvince = (e) => {
+    setProvince(e.target.value);
+    if (e.target.value === "") {
+      setCity(false);
+    } else {
+      setCity(true);
+      if (e.target.value === "tehran") {
+        setSubCities([{ name: "تهران" }, { name: "کرج" }]);
+      }
+      if (e.target.value === "ghom") {
+        setSubCities([{ name: "قم" }, { name: "	جعفریه" }]);
+      }
+      if (e.target.value === "mazandaran") {
+        setSubCities([{ name: "ساری" }, { name: "بابل" }]);
+      }
+      if (e.target.value === "khorsanRazavi") {
+        setSubCities([{ name: "مشهد" }, { name: "چناران" }]);
+      }
+      if (e.target.value === "kerman") {
+        setSubCities([{ name: "کرمان" }, { name: "سیرجان" }]);
+      }
+      if (e.target.value === "golestan") {
+        setSubCities([{ name: "گرگان" }, { name: "کردکوی" }]);
+      }
+      if (e.target.value === "gilan") {
+        setSubCities([{ name: "رشت" }, { name: "بندرانزلی" }]);
+      }
+      if (e.target.value === "Isfahan") {
+        setSubCities([{ name: "اصفهان" }, { name: "شاهین شهر" }]);
+      }
+      if (e.target.value === "hamedan") {
+        setSubCities([{ name: "همدان" }, { name: "نهاوند" }]);
+      }
+      if (e.target.value === "shiraz") {
+        setSubCities([{ name: "شیراز" }, { name: "مرو دشت" }]);
+      }
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -36,6 +86,10 @@ const Register = ({ classes }) => {
     setFname("");
     setEmail("");
     setPass("");
+    setDegree("");
+    setProvince("");
+    setCity(false);
+    setDegreePlace(false);
     setSuccess(true);
   };
   return (
@@ -78,6 +132,49 @@ const Register = ({ classes }) => {
             {togglePass ? <AiFillEye /> : <AiFillEyeInvisible />}
           </span>
         </div>
+        <div className="register-control">
+          <select value={degree} onChange={handleDegree}>
+            <option value="">مدرک تحصیلی</option>
+            <option value="diplom">دیپلم</option>
+            <option value="karshenasi">کارشناسی</option>
+            <option value="karshenasiArshad">کارشناسی ارشد</option>
+            <option value="doctora">دکتری</option>
+          </select>
+        </div>
+        <div className="degreePlace">
+          {degreePlace && <input type="text" placeholder="محل تحصیل" />}{" "}
+        </div>
+        <div className="register-control">
+          <select value={province} onChange={handleProvince}>
+            <option value="">استان</option>
+            <option value="tehran">تهران</option>
+            <option value="ghom">قم</option>
+            <option value="mazandaran">مازندران</option>
+            <option value="khorsanRazavi">خراسان رضوی</option>
+            <option value="kerman">کرمان</option>
+            <option value="golestan">گلستان</option>
+            <option value="gilan">گیلان</option>
+            <option value="Isfahan">اصفهان</option>
+            <option value="hamedan">همدان</option>
+            <option value="shiraz">شیراز</option>
+          </select>
+        </div>
+        {city && (
+          <div>
+            <select
+              value={newCities}
+              onChange={(e) => setNewCities(e.target.value)}
+            >
+              {subCities.map((city, index) => {
+                return (
+                  <option key={index} value={city.name}>
+                    {city.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        )}
 
         <input
           type="submit"

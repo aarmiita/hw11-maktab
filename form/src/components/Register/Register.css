@@ -32,7 +32,8 @@ a {
 .signout-control input:first-child {
   margin-left: 10px;
 }
-.register-control input {
+.register-control input,
+.register-control select {
   margin: 10px 0;
   width: 100%;
   height: 40px;
@@ -41,9 +42,25 @@ a {
   color: white;
   background-color: transparent;
 }
-/* input::placeholder::first-line {
-    color: #1ab188;
-  } */
+select {
+  margin: 10px 0;
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  border: 1px solid rgb(212, 212, 212);
+  color: white;
+  background-color: transparent;
+}
+select option {
+  margin: 10px 0;
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  border: 1px solid rgb(212, 212, 212);
+  color: white;
+  background-color: #24333c;
+}
+
 .register-btn {
   display: inline-block;
   background-color: #1ab188;
@@ -62,4 +79,13 @@ a {
   left: 43px;
   color: gray;
   font-size: 18px;
+}
+div.degreePlace input {
+  margin: 10px 0;
+  width: 100%;
+  height: 40px;
+  font-size: 17px;
+  border: 1px solid rgb(212, 212, 212);
+  color: white;
+  background-color: transparent;
 }
