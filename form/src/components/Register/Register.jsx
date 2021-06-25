@@ -17,6 +17,7 @@ const Register = ({ classes }) => {
   const [subCities, setSubCities] = useState([]);
   const [degree, setDegree] = useState("");
   const [degreePlace, setDegreePlace] = useState(false);
+  const [studyPlace, setStudyPlace] = useState("");
   const handleDegree = (e) => {
     setDegree(e.target.value);
     if (e.target.value === "") {
@@ -82,6 +83,12 @@ const Register = ({ classes }) => {
       alert("لطفا پسورد را به درستی وارد کنید ");
       return;
     }
+    if (setDegreePlace) {
+      if (!studyPlace) {
+        alert("لطفا محل تحصیل خو را ورا کنید");
+        return;
+      }
+    }
     setName("");
     setFname("");
     setEmail("");
@@ -142,7 +149,14 @@ const Register = ({ classes }) => {
           </select>
         </div>
         <div className="degreePlace">
-          {degreePlace && <input type="text" placeholder="محل تحصیل" />}{" "}
+          {degreePlace && (
+            <input
+              type="text"
+              placeholder="محل تحصیل"
+              value={studyPlace}
+              onChange={(e) => setStudyPlace(e.target.value)}
+            />
+          )}{" "}
         </div>
         <div className="register-control">
           <select value={province} onChange={handleProvince}>
