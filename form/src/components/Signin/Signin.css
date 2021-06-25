@@ -39,3 +39,31 @@ input {
   text-align: center;
   font-size: 24px;
 }
+.forgot h4 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.forgot h1 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.forgot {
+  background-color: #24333c;
+  padding: 20px;
+  width: 600px;
+  height: 200px;
+  position: fixed;
+  top: 150px;
+  left: 150px;
+  bottom: 50px;
+  right: 50px;
+}
+.showPass {
+  position: absolute;
+  top: 235px;
+  left: 43px;
+  color: gray;
+  font-size: 18px;
+}

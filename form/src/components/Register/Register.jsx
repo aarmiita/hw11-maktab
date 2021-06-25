@@ -1,35 +1,48 @@
-import React,{useState,UseEffect} from 'react'
-import "./Register.css"
+import React, { useState, UseEffect } from "react";
+import "./Register.css";
+import Successregister from "./Successregister";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
+const Register = ({ classes }) => {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const [name, setName] = useState("");
+  const [fname, setFname] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [togglePass, setTogglePass] = useState(false);
 
-const Register = ({classes}) => {
-    const [email, setEmail] = useState("");
-    const [pass, setPass] = useState("");
-    const [name, setName] = useState("");
-    const [fname, setFname] = useState("");
+  const emailpattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-  
-      if (!email) {
-        alert("Please add a email");
-        return;
-      }
-      if (!pass) {
-        alert("Please add a pass");
-        return;
-      }
-      setName("");
-      setFname("");
-      setEmail("");
-      setPass("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    };
-    return (
-        <form className={`register-form ${classes}`}>
-          <h2>رایگان ثبت نام کنید</h2>
-          <div className="signout-control">
+    if (!name) {
+      alert("لطفا پسورد را به درستی وارد کنید ");
+      return;
+    }
+    if (!fname) {
+      alert("لطفا پسورد را به درستی وارد کنید ");
+      return;
+    }
+    if (!email || !emailpattern.test(email)) {
+      alert("لطفا ایمیل را به درستی وار کنید");
+      return;
+    }
+    if (!pass) {
+      alert("لطفا پسورد را به درستی وارد کنید ");
+      return;
+    }
+    setName("");
+    setFname("");
+    setEmail("");
+    setPass("");
+    setSuccess(true);
+  };
+  return (
+    <>
+      <form className={`register-form ${classes}`}>
+        <h2>رایگان ثبت نام کنید</h2>
+        <div className="signout-control">
           <input
             type="text"
             placeholder="*نام"
@@ -53,13 +66,19 @@ const Register = ({classes}) => {
         </div>
         <div className="register-control">
           <input
-            type="password"
+            type={togglePass ? "text" : "password"}
             placeholder="*کلمه عبور"
             value={pass}
             onChange={(e) => setPass(e.target.value)}
-          />
+          />{" "}
+          <span
+            className="showPass-register"
+            onClick={() => setTogglePass(!togglePass)}
+          >
+            {togglePass ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </span>
         </div>
-        
+
         <input
           type="submit"
           value="ثبت نام"
@@ -67,7 +86,9 @@ const Register = ({classes}) => {
           onClick={handleSubmit}
         />
       </form>
-    )
-}
+      {success && <Successregister onclick={() => setSuccess(false)} />}
+    </>
+  );
+};
 
-export default Register
+export default Register;

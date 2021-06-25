@@ -19,6 +19,8 @@
   width: 40%;
   max-height: 500px;
   background-color: #24333c;
+  min-width: 500px;
+  position: relative;
 }
 .tab {
   font-weight: bold;

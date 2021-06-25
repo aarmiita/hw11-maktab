@@ -56,3 +56,10 @@ a {
   text-align: center;
   font-size: 24px;
 }
+.showPass-register {
+  position: absolute;
+  top: 298px;
+  left: 43px;
+  color: gray;
+  font-size: 18px;
+}
