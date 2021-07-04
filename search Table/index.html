@@ -93,17 +93,28 @@
 
     <script>
       function myFunction() {
+        //declare the variables
         var input, filter, table, tr, td, i, txtValue;
+        //get input by id
         input = document.getElementById("myInput");
+        //get input value
         filter = input.value.toUpperCase();
+        //get table by id
         table = document.getElementById("myTable");
+        //get tr by tagname of table
         tr = table.getElementsByTagName("tr");
+        //loop over all tr to hide the ones that does not exist
         for (i = 0; i < tr.length; i++) {
+          //get the first tr that includes name (if you want to searchby country choose td[0])
           td = tr[i].getElementsByTagName("td")[0];
+          //if td is true (means that if exist )
           if (td) {
+            //(get the innertext or textContent of td)
             txtValue = td.textContent || td.innerText;
+            //hide the ones that dose not include search
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
               tr[i].style.display = "";
+              //showing the ones that includes search
             } else {
               tr[i].style.display = "none";
             }

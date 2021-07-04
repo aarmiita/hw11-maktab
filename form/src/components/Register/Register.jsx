@@ -136,7 +136,7 @@ const Register = ({ classes }) => {
             className="showPass-register"
             onClick={() => setTogglePass(!togglePass)}
           >
-            {togglePass ? <AiFillEye /> : <AiFillEyeInvisible />}
+            {togglePass ? <AiFillEyeInvisible /> : <AiFillEye />}
           </span>
         </div>
         <div className="register-control">

@@ -47,7 +47,7 @@ const Signin = ({ classes }) => {
             onChange={(e) => setPass(e.target.value)}
           />
           <span className="showPass" onClick={() => setTogglePass(!togglePass)}>
-            {togglePass ? <AiFillEye /> : <AiFillEyeInvisible />}
+            {togglePass ? <AiFillEyeInvisible /> : <AiFillEye />}
           </span>
         </div>
         <a href="#" onClick={() => setSend(true)}>

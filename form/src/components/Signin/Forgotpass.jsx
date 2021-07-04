@@ -7,7 +7,7 @@ const Forgotpass = ({ onclick }) => {
       <div>
         <input type="email" placeholder="پست الکترونیک" />
       </div>
-      <button className="btn-signin" onClick={onclick}>
+      <button type="submit" className="btn-signin" onClick={onclick}>
         ارسال
       </button>
     </div>
